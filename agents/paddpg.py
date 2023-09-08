@@ -217,7 +217,7 @@ class PADDPGAgent(Agent):
         self.use_ornstein_noise = use_ornstein_noise
         self.noise = OrnsteinUhlenbeckActionNoise(self.action_parameter_size, random_machine=self.np_random, mu=0., theta=0.15, sigma=0.0001)
 
-        print(self.num_actions+self.action_parameter_size)
+        # print(self.num_actions+self.action_parameter_size)
         self.n_step_returns = n_step_returns
         if replay_memory is None:
             self.replay_memory = MemoryNStepReturns(replay_memory_size, observation_space.shape, (self.num_actions+self.action_parameter_size,), next_actions=False, n_step_returns=self.n_step_returns)
@@ -261,13 +261,13 @@ class PADDPGAgent(Agent):
 
     def set_action_parameter_passthrough_weights(self, initial_weights, initial_bias=None):
         passthrough_layer = self.actor.action_parameters_passthrough_layer
-        print(initial_weights.shape)
-        print(passthrough_layer.weight.data.size())
+        # print(initial_weights.shape)
+        # print(passthrough_layer.weight.data.size())
         assert initial_weights.shape == passthrough_layer.weight.data.size()
         passthrough_layer.weight.data = torch.Tensor(initial_weights).float().to(device)
         if initial_bias is not None:
-            print(initial_bias.shape)
-            print(passthrough_layer.bias.data.size())
+            # print(initial_bias.shape)
+            # print(passthrough_layer.bias.data.size())
             assert initial_bias.shape == passthrough_layer.bias.data.size()
             passthrough_layer.bias.data = torch.Tensor(initial_bias).float().to(device)
         passthrough_layer.requires_grad = False

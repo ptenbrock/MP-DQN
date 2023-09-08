@@ -12,7 +12,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class MultiPassQActor(nn.Module):
 
-    def __init__(self, state_size, action_size, action_parameter_size_list, hidden_layers=(100,),
+    def __init__(self, state_size, action_size, action_parameter_size_list, hidden_layers=None,
                  output_layer_init_std=None, activation="relu", **kwargs):
         super().__init__()
         self.state_size = state_size
@@ -83,9 +83,7 @@ class MultiPassQActor(nn.Module):
 class MultiPassPDQNAgent(PDQNAgent):
     NAME = "Multi-Pass P-DQN Agent"
 
-    def __init__(self,
-                 *args,
-                 **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.actor = MultiPassQActor(self.observation_space.shape[0], self.num_actions, self.action_parameter_sizes,
                                      **kwargs['actor_kwargs']).to(device)

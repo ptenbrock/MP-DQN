@@ -15,7 +15,7 @@ from agents.utils.noise import OrnsteinUhlenbeckActionNoise
 
 class QActor(nn.Module):
 
-    def __init__(self, state_size, action_size, action_parameter_size, hidden_layers=(100,), action_input_layer=0,
+    def __init__(self, state_size, action_size, action_parameter_size, hidden_layers=None, action_input_layer=0,
                  output_layer_init_std=None, activation="relu", **kwargs):
         super(QActor, self).__init__()
         self.state_size = state_size
@@ -64,7 +64,7 @@ class QActor(nn.Module):
 
 class ParamActor(nn.Module):
 
-    def __init__(self, state_size, action_size, action_parameter_size, hidden_layers, squashing_function=False,
+    def __init__(self, state_size, action_size, action_parameter_size, hidden_layers=None, squashing_function=False,
                  output_layer_init_std=None, init_type="kaiming", activation="relu", init_std=None):
         super(ParamActor, self).__init__()
 

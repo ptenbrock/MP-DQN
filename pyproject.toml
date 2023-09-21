@@ -9,8 +9,9 @@ dependencies = [
   "numpy",
   "torch"
 ]
-[tool.setuptools]
-packages = ["mpdqn"]
+[tool.setuptools.packages.find]
+include = ["mpdqn*"]
+namespaces = false
 [build-system]
 requires = ["setuptools>=43.0.0", "wheel"]
 build-backend = "setuptools.build_meta"

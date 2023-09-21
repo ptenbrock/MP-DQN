@@ -313,18 +313,22 @@ class PDQNAgent(Agent):
         else:
             self.epsilon = self.epsilon_final
 
-    def act(self, state):
+    def act(self, state, deterministic=False):
         with torch.no_grad():
             state = torch.from_numpy(state).to(self.device)
             all_action_parameters = self.actor_param.forward(state)
 
-            # Hausknecht and Stone [2016] use epsilon greedy actions with uniform random action-parameter exploration
-            rnd = self.np_random.uniform()
-            if rnd < self.epsilon:
+            if deterministic:  # evaluate only
+                random_choice = False
+            else:
+                # Hausknecht and Stone [2016] use epsilon greedy actions with uniform random action-parameter exploration
+                rnd = self.np_random.uniform()
+                random_choice = (rnd < self.epsilon)
+
+            if random_choice:
                 action = self.np_random.choice(self.num_actions)
                 if not self.use_ornstein_noise:
-                    all_action_parameters = torch.from_numpy(np.random.uniform(self.action_parameter_min_numpy,
-                                                              self.action_parameter_max_numpy))
+                    all_action_parameters = torch.from_numpy(np.random.uniform(self.action_parameter_min_numpy, self.action_parameter_max_numpy))
             else:
                 # select maximum action
                 Q_a = self.actor.forward(state.unsqueeze(0), all_action_parameters.unsqueeze(0))
@@ -334,7 +338,7 @@ class PDQNAgent(Agent):
             # add noise only to parameters of chosen action
             all_action_parameters = all_action_parameters.cpu().data.numpy()
             offset = np.array([self.action_parameter_sizes[i] for i in range(action)], dtype=int).sum()
-            if self.use_ornstein_noise and self.noise is not None:
+            if not deterministic and self.use_ornstein_noise and self.noise is not None:
                 all_action_parameters[offset:offset + self.action_parameter_sizes[action]] += self.noise.sample()[offset:offset + self.action_parameter_sizes[action]]
             action_parameters = all_action_parameters[offset:offset+self.action_parameter_sizes[action]]
 

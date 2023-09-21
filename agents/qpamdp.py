@@ -1,9 +1,9 @@
 import numpy as np
 import warnings
 
-from agents.agent import Agent
-from agents.basis import SimpleBasis, ScaledBasis, PolynomialBasis
-from agents.sarsa_lambda import SarsaLambdaAgent
+from .agent import Agent
+from .basis import SimpleBasis, ScaledBasis, PolynomialBasis
+from .sarsa_lambda import SarsaLambdaAgent
 
 
 class QPAMDPAgent(Agent):

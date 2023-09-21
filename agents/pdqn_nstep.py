@@ -6,9 +6,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 
-from agents.memory.memory import MemoryNStepReturns
-from agents.pdqn import PDQNAgent
-from agents.utils import soft_update_target_network
+from .memory.memory import MemoryNStepReturns
+from .pdqn import PDQNAgent
+from .utils import soft_update_target_network
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

@@ -3,8 +3,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-from agents.pdqn import PDQNAgent
-from agents.utils import hard_update_target_network
+from .pdqn import PDQNAgent
+from .utils import hard_update_target_network
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

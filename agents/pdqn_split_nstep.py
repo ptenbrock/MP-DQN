@@ -1,9 +1,9 @@
 import torch
 import torch.optim as optim
 
-from agents.pdqn_nstep import PDQNNStepAgent
-from agents.pdqn_split import SplitQActor
-from agents.utils import hard_update_target_network
+from .pdqn_nstep import PDQNNStepAgent
+from .pdqn_split import SplitQActor
+from .utils import hard_update_target_network
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

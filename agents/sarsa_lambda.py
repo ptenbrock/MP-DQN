@@ -1,6 +1,6 @@
 import numpy as np
-from agents.agent import Agent
-from agents.basis import FourierBasis
+from .agent import Agent
+from .basis import FourierBasis
 
 
 class SarsaLambdaAgent(Agent):

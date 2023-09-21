@@ -60,8 +60,8 @@ class Memory(object):
 
     def sample(self, batch_size, random_machine=np.random):
         # Draw such that we always have a proceeding element.
-        # batch_idxs = random_machine.random_integers(self.nb_entries - 2, size=batch_size)
-        batch_idxs = random_machine.random_integers(low=0, high=self.nb_entries-1, size=batch_size)
+        # batch_idxs = random_machine.randint(1, self.nb_entries - 1, size=batch_size)
+        batch_idxs = random_machine.randint(low=0, high=self.nb_entries, size=batch_size)
 
         '''states_batch = array_min2d(self.states.get_batch(batch_idxs))
         actions_batch = array_min2d(self.actions.get_batch(batch_idxs))
@@ -119,7 +119,7 @@ class MemoryV2(object):
 
     def sample(self, batch_size, random_machine=np.random):
         # Draw such that we always have a proceeding element.
-        #batch_idxs = random_machine.random_integers(self.nb_entries - 2, size=batch_size)
+        #batch_idxs = random_machine.randint(1, self.nb_entries - 1, size=batch_size)
         batch_idxs = random_machine.choice(self.nb_entries, size=batch_size)
         # batch_idxs = random_machine.choice(self.nb_entries, weights=[i/self.nb_entries for i in range(self.nb_entries)], size=batch_size)
 
@@ -175,7 +175,7 @@ class MemoryNStepReturns(object):
 
     def sample(self, batch_size, random_machine=np.random):
         # Draw such that we always have a proceeding element.
-        #batch_idxs = random_machine.random_integers(self.nb_entries - 2, size=batch_size)
+        #batch_idxs = random_machine.randint(1, self.nb_entries - 1, size=batch_size)
         batch_idxs = random_machine.choice(self.nb_entries, size=batch_size)
         # batch_idxs = random_machine.choice(self.nb_entries, weights=[i/self.nb_entries for i in range(self.nb_entries)], size=batch_size)
 

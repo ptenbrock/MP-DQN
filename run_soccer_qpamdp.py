@@ -4,8 +4,8 @@ import click
 import time
 import gym
 import gym_soccer
-from agents.qpamdp import QPAMDPAgent
-from agents.sarsa_lambda import SarsaLambdaAgent
+from mpdqn.agents.qpamdp import QPAMDPAgent
+from mpdqn.agents.sarsa_lambda import SarsaLambdaAgent
 from common.soccer_domain import SoccerParameterisedActionWrapper, SoccerScaledParameterisedActionWrapper
 from common.wrappers import TimestepWrapper, ScaledStateWrapper
 from gym.wrappers import Monitor

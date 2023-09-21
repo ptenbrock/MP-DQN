@@ -6,8 +6,8 @@ import os
 import gym
 import gym_platform
 
-from agents.qpamdp import QPAMDPAgent
-from agents.sarsa_lambda import SarsaLambdaAgent
+from mpdqn.agents.qpamdp import QPAMDPAgent
+from mpdqn.agents.sarsa_lambda import SarsaLambdaAgent
 from common.wrappers import QPAMDPScaledParameterisedActionWrapper
 from gym.wrappers import Monitor
 from common.wrappers import ScaledStateWrapper

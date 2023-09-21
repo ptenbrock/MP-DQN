@@ -9,7 +9,7 @@ import numpy as np
 from gym.wrappers import Monitor
 from common import ClickPythonLiteralOption
 from common.soccer_domain import SoccerScaledParameterisedActionWrapper, kill_soccer_server
-from agents.paddpg import PADDPGAgent
+from mpdqn.agents.paddpg import PADDPGAgent
 
 
 def pad_action(act, act_param):

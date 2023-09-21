@@ -10,9 +10,9 @@ from common import ClickPythonLiteralOption
 from common.wrappers import ScaledParameterisedActionWrapper
 from common.goal_domain import GoalFlattenedActionWrapper, GoalObservationWrapper
 from common.wrappers import ScaledStateWrapper
-from agents.pdqn import PDQNAgent
-from agents.pdqn_split import SplitPDQNAgent
-from agents.pdqn_multipass import MultiPassPDQNAgent
+from mpdqn.agents.pdqn import PDQNAgent
+from mpdqn.agents.pdqn_split import SplitPDQNAgent
+from mpdqn.agents.pdqn_multipass import MultiPassPDQNAgent
 
 
 def pad_action(act, act_param):

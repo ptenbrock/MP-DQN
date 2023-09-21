@@ -4,8 +4,8 @@ import gym
 import os
 import numpy as np
 import gym_goal
-from agents.qpamdp import QPAMDPAgent
-from agents.sarsa_lambda import SarsaLambdaAgent
+from mpdqn.agents.qpamdp import QPAMDPAgent
+from mpdqn.agents.sarsa_lambda import SarsaLambdaAgent
 from common.wrappers import ScaledStateWrapper, QPAMDPScaledParameterisedActionWrapper
 from gym_goal.envs.config import GOAL_WIDTH, PITCH_WIDTH, PITCH_LENGTH
 from gym.wrappers import Monitor

@@ -112,9 +112,9 @@ def run(seed, episodes, evaluation_episodes, batch_size, gamma, inverting_gradie
 
     print(env.observation_space)
 
-    from agents.pdqn import PDQNAgent
-    from agents.pdqn_split import SplitPDQNAgent
-    from agents.pdqn_multipass import MultiPassPDQNAgent
+    from mpdqn.agents.pdqn import PDQNAgent
+    from mpdqn.agents.pdqn_split import SplitPDQNAgent
+    from mpdqn.agents.pdqn_multipass import MultiPassPDQNAgent
     assert not (split and multipass)
     agent_class = PDQNAgent
     if split:

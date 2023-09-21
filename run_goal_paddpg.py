@@ -6,7 +6,7 @@ import gym
 import gym_goal
 from gym_goal.envs.config import GOAL_WIDTH, PITCH_LENGTH, PITCH_WIDTH
 from gym.wrappers import Monitor
-from agents.paddpg import PADDPGAgent
+from mpdqn.agents.paddpg import PADDPGAgent
 from common import ClickPythonLiteralOption
 from common.wrappers import ScaledParameterisedActionWrapper
 from common.goal_domain import GoalFlattenedActionWrapper, GoalObservationWrapper

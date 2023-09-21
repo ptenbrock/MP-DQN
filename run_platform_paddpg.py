@@ -5,7 +5,7 @@ import numpy as np
 import gym
 import gym_platform
 from gym.wrappers import Monitor
-from agents.paddpg import PADDPGAgent
+from mpdqn.agents.paddpg import PADDPGAgent
 from common import ClickPythonLiteralOption
 from common.platform_domain import PlatformFlattenedActionWrapper
 from common.wrappers import ScaledStateWrapper, ScaledParameterisedActionWrapper

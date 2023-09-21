@@ -1,0 +1,16 @@
+[project]
+name = "MP-DQN"
+version = "0.1.0"
+description = "This package includes several reinforcement learning algorithms for parameterised action space MDPs"
+readme = "README.md"
+requires-python = ">=3.5"
+license = {file = "LICENSE.md"}
+dependencies = [
+  "numpy",
+  "torch"
+]
+[tool.setuptools]
+packages = ["mpdqn"]
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"

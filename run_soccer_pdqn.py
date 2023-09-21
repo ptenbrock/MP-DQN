@@ -110,9 +110,9 @@ def run(seed, episodes, batch_size, gamma, inverting_gradients, initial_memory_t
     # env.seed(seed)  # doesn't work on HFO
     np.random.seed(seed)
 
-    from agents.pdqn_nstep import PDQNNStepAgent
-    from agents.pdqn_split_nstep import PDQNNStepSplitAgent
-    from agents.pdqn_multipass_nstep import MultiPassPDQNNStepAgent
+    from mpdqn.agents.pdqn_nstep import PDQNNStepAgent
+    from mpdqn.agents.pdqn_split_nstep import PDQNNStepSplitAgent
+    from mpdqn.agents.pdqn_multipass_nstep import MultiPassPDQNNStepAgent
     assert not (split and multipass)
     agent_class = PDQNNStepAgent
     if split:
